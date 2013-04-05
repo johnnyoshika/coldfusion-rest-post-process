@@ -16,7 +16,7 @@ namespace ColdFusion.RestPostProcess {
         void context_PostRequestHandlerExecute(object sender, EventArgs e) {
             var httpContext = ((HttpApplication)sender).Context;
 
-            if (!httpContext.Response.ContentType.StartsWith("application/json"))
+            if (httpContext.Response.ContentType == null || !httpContext.Response.ContentType.StartsWith("application/json"))
                 return;
 
             httpContext.Response.Filter = new JsonStringCleanser(httpContext.Response.Filter, httpContext.Request);

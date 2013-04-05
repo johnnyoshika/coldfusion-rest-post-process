@@ -16,10 +16,10 @@ namespace ColdFusion.RestPostProcess {
         void context_PostRequestHandlerExecute(object sender, EventArgs e) {
             var httpContext = ((HttpApplication)sender).Context;
 
-            if (!httpContext.Response.ContentType.StartsWith("application/json"))
+            if (httpContext.Response.ContentType == null || !httpContext.Response.ContentType.StartsWith("application/json"))
                 return;
 
-            if (httpContext.Response.Status.StartsWith("2"))
+            if (httpContext.Response.Status == null || httpContext.Response.Status.StartsWith("2"))
                 return;
 
             httpContext.Response.Filter = new JsonCamelCasePropertyConverter(httpContext.Response.Filter, httpContext.Request);
