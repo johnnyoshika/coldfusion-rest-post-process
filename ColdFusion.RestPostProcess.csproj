@@ -41,8 +41,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="JsonCamelCasePropertyConverter.cs" />
-    <Compile Include="JsonStringCleanser.cs" />
+    <Compile Include="JsonCamelCasePropertyConverterModule.cs" />
+    <Compile Include="JsonStringCleanserModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UTF8SanitizerStream.cs" />
   </ItemGroup>
